@@ -36,8 +36,9 @@ io.on('connection', function(socket){
     socket.on('shoot', function(data){
         socket.broadcast.emit('shoot', data);
     });
-    socket.on('flip',function(){
-        socket.broadcast.emit('flip',{id: socket.id});
+    socket.on('flip',function(data){
+        data.id=socket.id;
+        socket.broadcast.emit('flip',data);
     });
     socket.on('disconnect', function(){
 	    console.log("Player Disconnected");
