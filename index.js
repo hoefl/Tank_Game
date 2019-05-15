@@ -34,6 +34,7 @@ io.on('connection', function(socket){
    		}
     });
     socket.on('shoot', function(data){
+        data.id=socket.id;
         socket.broadcast.emit('shoot', data);
     });
     socket.on('flip',function(data){
