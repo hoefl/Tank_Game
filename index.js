@@ -33,11 +33,11 @@ io.on('connection', function(socket){
    			}
    		}
     });
-    socket.on('explode',function(){
-        socket.broadcast.emit('explode');
-    });
     socket.on('shoot', function(data){
         socket.broadcast.emit('shoot', data);
+    });
+    socket.on('flip',function(){
+        socket.broadcast.emit('flip',{id: socket.id});
     });
     socket.on('disconnect', function(){
 	    console.log("Player Disconnected");
