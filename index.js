@@ -41,8 +41,8 @@ io.on('connection', function(socket){
         data.id=socket.id;
         socket.broadcast.emit('flip',data);
     });
-    socket.on('flipCheck',function(data){
-        socket.broadcast.emit('flipCheck',data);
+    socket.on('startCheck',function(data){
+        socket.broadcast.emit('startCheck',data);
     });
     socket.on('disconnect', function(){
 	    console.log("Player Disconnected");
