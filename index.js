@@ -42,6 +42,7 @@ io.on('connection', function(socket){
         socket.broadcast.emit('flip',data);
     });
     socket.on('startCheck',function(data){
+        data.id=socket.id;
         socket.broadcast.emit('startCheck',data);
     });
     socket.on('disconnect', function(){
