@@ -2,7 +2,8 @@ var app = require('express')();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var players = [];
-
+var k=0;
+var timer = true;
 
 server.listen(process.env.PORT || 8080, function(){
 	console.log("Server is now running.........");
@@ -32,6 +33,9 @@ io.on('connection', function(socket){
             	players.splice(i, 1);
    			}
    		}
+    });
+    socket.on('checktimer', function(){
+         timer = false;
     });
     socket.on('shoot', function(data){
         data.id=socket.id;
